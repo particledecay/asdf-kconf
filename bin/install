@@ -51,14 +51,24 @@ install() {
     fi
 }
 
+get_os() {
+  uname | tr '[:upper:]' '[:lower:]'
+}
+
 get_arch() {
-    uname | tr '[:upper:]' '[:lower:]'
+  uname -m
+}
+
+get_uniform_version() {
+  echo "${ASDF_INSTALL_VERSION}" | sed 's/v//'
 }
 
 get_download_url() {
     local -r version="$1"
+    local -r os="$(get_os)"
     local -r arch="$(get_arch)"
-    echo "https://github.com/$repository/releases/download/$version/${toolname}-${arch}-amd64.tar.gz"
+    local -r uniform_version="$(get_uniform_version)"
+    echo "https://github.com/$repository/releases/download/$version/${toolname}-${os}-${arch}-${uniform_version}.tar.gz"
 }
 
 install "${ASDF_INSTALL_TYPE}" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
