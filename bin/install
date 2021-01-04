@@ -37,7 +37,7 @@ install() {
         extracted=
         if [[ $download_path == *.tar.gz ]]; then
             echo "Extracting ${toolname} tar archive"
-            tar xvf "${download_path}" -C "$bin_install_path" "$(basename -s .tar.gz "$download_path")/$toolname" 2> /dev/null
+            tar xvf "${download_path}" -C "$bin_install_path" "$toolname" 2> /dev/null
             [ $? -eq 0 ] && extracted=true
         fi
 
