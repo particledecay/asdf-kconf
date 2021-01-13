@@ -13,4 +13,9 @@ then
   CURL="$CURL -H 'Authorization: token $OAUTH_TOKEN'"
 fi
 
-$CURL -fL "https://api.github.com/repos/$repository/releases" | grep tag_name | sed 's/"tag_name": //g;s/"//g;s/,//g' | sed -e 's/v//g' -e '/1.6.0/q' | tac | xargs
+function sort_versions() {
+  LC_ALL=C sort -t. -k 1,1 -k 2,2n -k 3,3n
+}
+
+versions=$($CURL -fL "https://api.github.com/repos/$repository/releases" | grep tag_name | sed -e 's/"tag_name": //g;s/"//g;s/,//g' -e 's/v//g' -e '/1.6.0/q')
+echo "$versions" | sort_versions | xargs
