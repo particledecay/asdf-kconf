@@ -1,5 +1,5 @@
 ---
-name: Test Plugin
+name: Plugin Test
 
 on:
   pull_request:
