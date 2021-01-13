@@ -4,6 +4,8 @@ name: Test Plugin
 on:
   pull_request:
     branches: [master]
+  push:
+    branches: [master]
 
 jobs:
   plugin_test:
