@@ -20,20 +20,6 @@ install() {
     local -r filename="${toolname}-${os}-${arch}-${ASDF_INSTALL_VERSION}.tar.gz"
     local -r download_pkg="${ASDF_DOWNLOAD_PATH}/${filename}"
 
-    # check if already installed
-    local -r installed=$(list_installed_versions | grep -c ${ASDF_INSTALL_VERSION})
-    if [ $installed -ne 0 ]
-    then
-      echo "Version ${ASDF_INSTALL_VERSION} of ${toolname} already installed"
-      exit 0
-    fi
-
-    # download package if not already downloaded
-    if [ ! -e "$download_pkg" ]
-    then
-      ./download "${ASDF_INSTALL_VERSION}" "${ASDF_DOWNLOAD_PATH}"
-    fi
-
     echo "Extracting ${toolname} from tar archive"
     tar xvf "$download_pkg" -C "${ASDF_INSTALL_PATH}/bin" "$toolname" 2> /dev/null
     if [ $? -eq 0 ]
@@ -44,13 +30,6 @@ install() {
       echo "Failed to install ${toolname} ${ASDF_INSTALL_VERSION}"
       exit 1
     fi
-}
-
-list_installed_versions() {
-  for install in $(ls -d ${ASDF_INSTALL_PATH}/*/ 2>/dev/null)
-  do
-    echo "$(basename $install)"
-  done
 }
 
 get_os() {
