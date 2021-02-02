@@ -26,7 +26,7 @@ download() {
   local -r download_url="$(get_download_url $filename)"
 
   echo "Downloading ${toolname} version ${ASDF_INSTALL_VERSION} from ${download_url}"
-  if $CURL -fL "${download_url}" -o "${ASDF_DOWNLOAD_PATH}/${filename}"
+  if $CURL -fsL "${download_url}" -o "${ASDF_DOWNLOAD_PATH}/${filename}"
   then
     echo "Successfully downloaded ${filename}"
     exit 0
