@@ -1,4 +1,4 @@
-# asdf-kconf [![Build Status](https://travis-ci.org/particledecay/asdf-kconf.svg?branch=master)](https://travis-ci.org/particledecay/asdf-kconf)
+# asdf-kconf [![Plugin Test](https://github.com/particledecay/asdf-kconf/workflows/Plugin%20Test/badge.svg)](https://github.com/particledecay/asdf-kconf)
 [asdf version manager](https://github.com/asdf-vm/asdf) plugin for [kconf](https://github.com/particledecay/kconf) Kubernetes configuration manager
 
 ## Install
