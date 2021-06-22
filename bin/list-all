@@ -17,5 +17,5 @@ function sort_versions() {
   LC_ALL=C sort -t. -k 1,1 -k 2,2n -k 3,3n
 }
 
-versions=$($CURL -fsL "https://api.github.com/repos/$repository/releases" | grep tag_name | sed 's/"tag_name": //g;s/"//g;s/,//g;s/v//g;/1.6.0/q')
+versions=$($CURL -fsL "https://api.github.com/repos/$repository/releases" | perl -ne 'while(/tag_name\": *"v?(.*?)",/g){print "$1\n";}')
 echo "$versions" | sort_versions | xargs
