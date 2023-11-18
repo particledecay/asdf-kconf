@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-kconf [![Build](https://github.com/particledecay/asdf-kconf/actions/workflows/build.yml/badge.svg)](https://github.com/particledecay/asdf-kconf/actions/workflows/build.yml) [![Lint](https://github.com/particledecay/asdf-kconf/actions/workflows/lint.yml/badge.svg)](https://github.com/particledecay/asdf-kconf/actions/workflows/lint.yml)
+# asdf-kconf [![Build](https://github.com/particledecay/asdf-kconf/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/particledecay/asdf-kconf/actions/workflows/build.yml)
 
 [kconf](https://github.com/particledecay/kconf) plugin for the [asdf version manager](https://asdf-vm.com).
 
