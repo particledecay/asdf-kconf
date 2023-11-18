@@ -24,7 +24,7 @@ Plugin:
 ```shell
 asdf plugin add kconf
 # or
-asdf plugin add kconf https://github.com/particledecay/asdf-kconf.git
+asdf plugin add kconf https://github.com/particledecay/asdf-kconf
 ```
 
 kconf:
